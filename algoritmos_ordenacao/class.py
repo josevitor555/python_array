@@ -37,22 +37,26 @@ from array_modules import Array, UnsortedArray
 
 
 def main_menu():
-    print("\n=== MENU ===")
-    print("1. Criar um novo array")
-    print("2. Exibir o array")
-    print("3. Ordenar com Bubble Sort")
-    print("4. Ordenar com Merge Sort")
-    print("5. Ordenar com Insertion Sort")
-    print("6. Ordenar com Selection Sort")
-    print("7. Ordenar com Quick Sort")
-    print("8. Sair")
+    dict_menu = {
+        1: "Criar um novo array",
+        2: "Exibir o Array",
+        3: "Ordenar com Bubble Sort",
+        4: "Ordenar com Merge Sor",
+        5: "Ordenar com Insertion Sort",
+        6: "Ordenar com Selection Sort",
+        7: "Ordenar com Quick Sort",
+        8: "Sair"
+    }
+
+    for k, v in dict_menu.items():
+        print("{}: {}".format(k, v))
 
 def main():
     arr = None
 
     while True:
         main_menu()
-        option = str(input("Escolha uma das opções abaixo: "))
+        option = str(input("Escolha uma das opções acima: "))
         
         match option:
             case "1":
@@ -60,7 +64,7 @@ def main():
                 arr = Array(size_array, "i")
 
                 for i in range(size_array):
-                    value = int(input(f"Digitte o elemento:{i + 1}: "))
+                    value = int(input(f"Digite o elemento {i + 1}: "))
                     arr[i] = value
                 print("Array criado com sucesso!")
             case "2":
@@ -99,7 +103,7 @@ def main():
                     arr.quick_sort()
                     print("Array ordenado com Quick Sort:", arr)
             case "8":
-                print("Saindo...")
+                print("Você saiu.")
                 break
             case _:
                 print("Opção inválida: {}".format(option))
